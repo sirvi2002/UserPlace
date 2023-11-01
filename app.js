@@ -49,7 +49,7 @@ mongoose
     .connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ac-pr29esb-shard-00-00.jteif2l.mongodb.net:27017,ac-pr29esb-shard-00-01.jteif2l.mongodb.net:27017,ac-pr29esb-shard-00-02.jteif2l.mongodb.net:27017/${process.env.DB_NAME}?ssl=true&replicaSet=atlas-hgqrde-shard-0&authSource=admin&retryWrites=true&w=majority`)
     .then(() => {
         console.log("Connected!!");
-        app.listen(5000);
+        app.listen(process.env.PORT || 5000);
     })
     .catch(error => {
         console.log("Errorrr " + error);
