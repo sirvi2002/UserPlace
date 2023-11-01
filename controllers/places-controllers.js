@@ -195,6 +195,7 @@ const deletePlace = async (req, res, next) => {
         sess.startTransaction();
         creator.places.pull(place);
         await creator.save();
+        //await Place.deleteOne({ _id: place.id, session: sess })
         await place.remove({ session: sess });
         await sess.commitTransaction();
     }
